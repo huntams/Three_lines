@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.example.three_lines.ViewContact
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/viewContact"
+        app:title="test title"
+        app:subtitle="tewte"
+        app:image="@drawable/ic_launcher_background">
+
+    </com.example.three_lines.ViewContact>
+</LinearLayout>
