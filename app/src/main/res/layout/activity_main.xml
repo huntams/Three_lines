@@ -1,37 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-    <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:id="@+id/editText"/>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:itemCount="4"
-            tools:listitem="@layout/view_contact">
-
-        </androidx.recyclerview.widget.RecyclerView>
-
-        <Button
-            android:id="@+id/ButtonAdd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="Добавить"
-            android:textColorHint="@color/white" />
-
-        <Button
-            android:id="@+id/ButtonRemove"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="Удалить"
-            android:textColorHint="@color/white" />
-    </LinearLayout>
-</ScrollView>
+    <Button
+        android:id="@+id/buttonAction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center" />
+</LinearLayout>

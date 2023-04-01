@@ -10,7 +10,7 @@ import com.example.three_lines.databinding.ViewContactBinding
 
 class DataListAdapter : ListAdapter<DataModel, DataListAdapter.DataViewHolder>(diffUtilCallback) {
 
-    private var onClick : ( DataModel,String)-> Unit = {}
+    private var onClick : ( DataModel)-> Unit = {}
     fun setCallback(callback :(DataModel) -> Unit){
         this.onClick = callback
     }
