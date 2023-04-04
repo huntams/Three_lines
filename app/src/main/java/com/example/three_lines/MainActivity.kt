@@ -36,10 +36,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.buttonAction.setOnClickListener {
-            val text = binding.editText.text.toString()
-            startActivity(SecondActivity.createIntent(this,text))
-        }
         }
 
 }
