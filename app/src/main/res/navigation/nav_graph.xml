@@ -3,32 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/firstFragment">
+    app:startDestination="@id/noteListFragment">
+
 
     <fragment
-        android:id="@+id/firstFragment"
-        tools:layout="@layout/fragment_first"
-        android:name="com.example.three_lines.fragment1.FirstFragment"
-        android:label="FirstFragment" >
-        <action
-            android:id="@+id/action_firstFragment_to_secondFragment13"
-            app:destination="@id/secondFragment" >
-            <argument
-                android:name="text"
-                android:defaultValue="hh" />
-        </action>
-    </fragment>
-    <fragment
-        android:id="@+id/secondFragment"
-        android:name="com.example.three_lines.fragment2.SecondFragment"
-        android:label="SecondFragment"
-        tools:layout="@layout/second_fragment"
-        >
-        <argument
-            android:name="text"
-            app:argType="string"
-            app:nullable="true"
-            android:defaultValue="test" />
-    </fragment>
-
+        android:id="@+id/noteListFragment"
+        android:name="com.example.three_lines.presentation.list.NoteListFragment"
+        android:label="NoteListFragment"
+        tools:layout="@layout/fragment_note_list"/>
 </navigation>

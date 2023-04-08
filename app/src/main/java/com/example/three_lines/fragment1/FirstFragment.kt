@@ -19,9 +19,6 @@ class FirstFragment : Fragment(R.layout.fragment_first) {
         super.onViewCreated(view, savedInstanceState)
         binding.button.setOnClickListener {
             val text = binding.editText.text.toString()
-            findNavController().navigate(
-                FirstFragmentDirections.actionFirstFragmentToSecondFragment13()
-            )
             findNavController().popBackStack()
         }
 

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Three_lines</string>
+    <string name="notes_list_title">QuickNote</string>
 </resources>
