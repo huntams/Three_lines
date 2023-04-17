@@ -30,7 +30,7 @@ class NotesListViewModel(
               _notesListLiveData.value = list.map{
 
                   it.copy(
-                      text = it.text.toList().shuffled().joinToString("")
+                      text = it.text
                   )
               }
           }
