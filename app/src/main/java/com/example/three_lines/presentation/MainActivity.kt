@@ -6,7 +6,9 @@ import android.os.Bundle
 import android.widget.Toast
 import com.example.three_lines.databinding.ActivityMainBinding
 import com.example.three_lines.second_activity.SecondActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 

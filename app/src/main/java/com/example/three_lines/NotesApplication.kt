@@ -1,8 +1,14 @@
 package com.example.three_lines
 
 import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
 
+
+@HiltAndroidApp
 class NotesApplication: Application() {
+
+
+    /*
     init {
         instance = this
     }
@@ -11,4 +17,5 @@ class NotesApplication: Application() {
 
         fun getApplicationContext() = instance?.applicationContext
     }
+*/
 }

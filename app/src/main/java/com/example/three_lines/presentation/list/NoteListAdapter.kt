@@ -12,8 +12,9 @@ import com.example.three_lines.data.Note
 import com.example.three_lines.databinding.FragmentNoteListBinding
 import com.example.three_lines.databinding.ItemNoteBinding
 import com.example.three_lines.databinding.ViewContactBinding
+import javax.inject.Inject
 
-class NoteListAdapter : ListAdapter<Note,NoteListAdapter.NoteViewHolder>(diffUtil)  {
+class NoteListAdapter @Inject constructor() : ListAdapter<Note,NoteListAdapter.NoteViewHolder>(diffUtil)  {
     private var onNoteClick : (Note) -> Unit = {}
     fun setCallBack(callback: (Note)->Unit){
         this.onNoteClick = callback

@@ -10,7 +10,10 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.three_lines.R
 import com.example.three_lines.databinding.FragmentNoteListBinding
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class NoteListFragment : Fragment(R.layout.fragment_note_list) {
     companion object {
         private const val MOCK_TEXT =
@@ -20,7 +23,8 @@ class NoteListFragment : Fragment(R.layout.fragment_note_list) {
 
     private val binding by viewBinding(FragmentNoteListBinding::bind)
     private val viewModel by viewModels<NotesListViewModel>()
-    private val listAdapter = NoteListAdapter()
+    @Inject
+    lateinit var listAdapter: NoteListAdapter
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getNotes()

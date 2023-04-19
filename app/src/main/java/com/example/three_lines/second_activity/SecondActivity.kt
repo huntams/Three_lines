@@ -5,6 +5,9 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.three_lines.databinding.ActivitySecondBinding
+import dagger.hilt.android.AndroidEntryPoint
+
+
 
 class SecondActivity : AppCompatActivity() {
 

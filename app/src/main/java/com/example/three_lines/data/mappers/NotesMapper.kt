@@ -2,8 +2,11 @@ package com.example.three_lines.data.mappers
 
 import com.example.three_lines.data.Note
 import com.example.three_lines.data.db.model.NoteEntity
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class NotesMapper {
+@Singleton
+class NotesMapper @Inject constructor() {
     fun fromEntityToUIModel(entity: NoteEntity) : Note {
 
         return  Note(

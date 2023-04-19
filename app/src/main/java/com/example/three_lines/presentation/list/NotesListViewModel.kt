@@ -7,13 +7,15 @@ import androidx.lifecycle.viewModelScope
 import com.example.three_lines.data.Note
 import com.example.three_lines.domain.AddNoteUseCase
 import com.example.three_lines.domain.GetNotesUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-
-class NotesListViewModel(
-    private val getNotesUseCase: GetNotesUseCase = GetNotesUseCase(),
-    private val addNoteUseCase: AddNoteUseCase = AddNoteUseCase()
+import javax.inject.Inject
+@HiltViewModel
+class NotesListViewModel @Inject constructor(
+    private val getNotesUseCase: GetNotesUseCase,
+    private val addNoteUseCase: AddNoteUseCase,
 ): ViewModel() {
 
     private val _notesListLiveData = MutableLiveData<List<Note>>()
