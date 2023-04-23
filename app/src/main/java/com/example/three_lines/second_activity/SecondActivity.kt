@@ -15,6 +15,7 @@ class SecondActivity : AppCompatActivity() {
             putExtra(ARG_TEXT_KEY,text)
         }
     }
+
     private lateinit var binding: ActivitySecondBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

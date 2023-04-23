@@ -42,7 +42,8 @@ class NoteListFragment : Fragment(R.layout.fragment_note_list) {
                 }
             }
             floatingActionButton.setOnClickListener {
-                viewModel.onAddClicked(MOCK_TEXT)
+
+                //viewModel.onAddClicked(MOCK_TEXT)
             }
             viewModel.notesListLiveData.observe(viewLifecycleOwner) {
                 listAdapter.submitList(it)

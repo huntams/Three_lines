@@ -13,4 +13,8 @@ class NoteRepositoryImpl(
     override fun addNote(text: String) {
         notesDataSource.addNote(text)
     }
+
+    override fun removeNotes() {
+        TODO("Not yet implemented")
+    }
 }
