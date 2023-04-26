@@ -21,6 +21,10 @@ class NoteRepositoryImpl @Inject constructor(
     }
 
     override suspend fun addNote(text: String) {
-        notesDAO.addNote(NoteEntity(text= text))
+        notesDAO.addNote(NoteEntity(text = text))
+    }
+
+    override suspend fun deleteNote(note: Note) {
+        notesDAO.deleteNote(notesMapper.fromUIModelToEntity(note))
     }
 }

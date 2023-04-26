@@ -10,5 +10,13 @@
         android:id="@+id/noteListFragment"
         android:name="com.example.three_lines.presentation.list.NoteListFragment"
         android:label="NoteListFragment"
-        tools:layout="@layout/fragment_note_list"/>
+        tools:layout="@layout/fragment_note_list">
+        <action
+            android:id="@+id/action_noteListFragment_to_addNoteFragment2"
+            app:destination="@id/addNoteFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/addNoteFragment2"
+        android:name="com.example.three_lines.presentation.fragment_add_note.AddNoteFragment"
+        android:label="AddNoteFragment" />
 </navigation>

@@ -15,4 +15,12 @@ class NotesMapper @Inject constructor() {
         )
 
     }
+    fun fromUIModelToEntity(note: Note) : NoteEntity {
+
+        return  NoteEntity(
+            id = note.id,
+            text = note.text
+        )
+
+    }
 }

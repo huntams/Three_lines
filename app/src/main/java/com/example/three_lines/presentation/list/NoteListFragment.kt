@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -23,9 +24,12 @@ class NoteListFragment : Fragment(R.layout.fragment_note_list) {
 
     private val binding by viewBinding(FragmentNoteListBinding::bind)
     private val viewModel by viewModels<NotesListViewModel>()
+
+
     @Inject
     lateinit var listAdapter: NoteListAdapter
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
         super.onViewCreated(view, savedInstanceState)
         viewModel.getNotes()
         with(binding) {
@@ -35,19 +39,27 @@ class NoteListFragment : Fragment(R.layout.fragment_note_list) {
             }
 
              */
+
             recyclerview.apply {
 
 
                 layoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
+
                 adapter = listAdapter.apply {
-                    setCallBack { note ->
+
+                    setLongCallBack { note ->
                         Toast.makeText(requireContext(), note.text, Toast.LENGTH_SHORT).show()
+                        viewModel.onDeleteClicked(note)
                     }
                 }
             }
+
             floatingActionButton.setOnClickListener {
-                viewModel.onAddClicked(MOCK_TEXT)
+                findNavController().navigate(
+                    NoteListFragmentDirections.actionNoteListFragmentToAddNoteFragment2()
+                )
             }
+
             viewModel.notesListLiveData.observe(viewLifecycleOwner) {
                 listAdapter.submitList(it)
             }

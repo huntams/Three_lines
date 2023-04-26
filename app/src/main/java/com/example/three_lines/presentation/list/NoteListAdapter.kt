@@ -2,6 +2,7 @@ package com.example.three_lines.presentation.list
 
 import android.view.LayoutInflater
 import android.view.ScrollCaptureCallback
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -14,11 +15,21 @@ import com.example.three_lines.databinding.ItemNoteBinding
 import com.example.three_lines.databinding.ViewContactBinding
 import javax.inject.Inject
 
-class NoteListAdapter @Inject constructor() : ListAdapter<Note,NoteListAdapter.NoteViewHolder>(diffUtil)  {
-    private var onNoteClick : (Note) -> Unit = {}
-    fun setCallBack(callback: (Note)->Unit){
+class NoteListAdapter @Inject constructor() :
+    ListAdapter<Note, NoteListAdapter.NoteViewHolder>(diffUtil) {
+    private var onNoteClick: (Note) -> Unit = {}
+    private var onNoteLongClick: (Note) -> Unit = {}
+    fun setCallBack(callback: (Note) -> Unit) {
         this.onNoteClick = callback
     }
+    fun setLongCallBack(callback: (Note) -> Unit){
+        this.onNoteLongClick = callback
+    }
+
+    fun swipeCallBack(callback: (Note) -> Unit){
+
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
         val binding = ItemNoteBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return NoteViewHolder(binding)
@@ -32,16 +43,21 @@ class NoteListAdapter @Inject constructor() : ListAdapter<Note,NoteListAdapter.N
         private var binding: ItemNoteBinding
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Note) {
-            with(binding){
+            with(binding) {
                 root.setOnClickListener { onNoteClick(item) }
+                root.setOnLongClickListener {
+                    onNoteLongClick(item)
+                    true
+                }
                 textViewText.text = item.text
             }
         }
     }
 }
+
 val diffUtil = object : DiffUtil.ItemCallback<Note>() {
 
-    override fun areContentsTheSame(oldItem: Note, newItem: Note) = oldItem==newItem
+    override fun areContentsTheSame(oldItem: Note, newItem: Note) = oldItem == newItem
 
-    override fun areItemsTheSame(oldItem: Note, newItem: Note)= oldItem.id == newItem.id
+    override fun areItemsTheSame(oldItem: Note, newItem: Note) = oldItem.id == newItem.id
 }

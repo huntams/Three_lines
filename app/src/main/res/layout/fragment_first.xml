@@ -4,16 +4,18 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:paddingHorizontal="16dp">
+
     <EditText
         android:id="@+id/editText"
-        android:hint="Text"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:hint="Text" />
+
     <Button
         android:id="@+id/button"
-        android:hint="press"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:hint="press" />
 
 
 </LinearLayout>
