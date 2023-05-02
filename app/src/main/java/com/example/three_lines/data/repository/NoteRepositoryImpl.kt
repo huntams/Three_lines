@@ -20,8 +20,16 @@ class NoteRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun addNote(text: String) {
-        notesDAO.addNote(NoteEntity(text = text))
+    override fun filterNotes(data: String): Flow<List<Note>> {
+        return notesDAO.filterNotes(data).map { list->
+            list.map {
+                notesMapper.fromEntityToUIModel(it)
+            }
+        }
+    }
+
+    override suspend fun addNote(text: String, uri: ByteArray) {
+        notesDAO.addNote(NoteEntity(text = text, uri = uri))
     }
 
     override suspend fun deleteNote(note: Note) {

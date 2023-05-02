@@ -11,7 +11,8 @@ class NotesMapper @Inject constructor() {
 
         return  Note(
             id = entity.id,
-            text = entity.text
+            text = entity.text,
+            uri = entity.uri,
         )
 
     }
@@ -19,7 +20,8 @@ class NotesMapper @Inject constructor() {
 
         return  NoteEntity(
             id = note.id,
-            text = note.text
+            text = note.text,
+            uri = note.uri,
         )
 
     }

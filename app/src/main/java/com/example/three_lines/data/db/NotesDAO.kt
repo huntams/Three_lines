@@ -15,6 +15,9 @@ interface NotesDAO {
     @Query("SELECT * FROM Notes")
     fun getNotes(): Flow<List<NoteEntity>>
 
+    @Query("SELECT * FROM Notes WHERE text LIKE :data || '%'")
+    fun filterNotes(data: String): Flow<List<NoteEntity>>
+
     @Delete
     suspend fun deleteNote(note: NoteEntity)
 }

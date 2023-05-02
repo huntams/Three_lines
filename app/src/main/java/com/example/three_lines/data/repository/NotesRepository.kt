@@ -5,7 +5,8 @@ import kotlinx.coroutines.flow.Flow
 
 interface NotesRepository {
     fun getNotes(): Flow<List<Note>>
-    suspend fun addNote(text: String)
+    fun filterNotes(data: String): Flow<List<Note>>
+    suspend fun addNote(text: String,uri: ByteArray)
 
     suspend fun deleteNote(note: Note)
 

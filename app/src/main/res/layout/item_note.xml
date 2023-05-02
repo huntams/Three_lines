@@ -7,12 +7,21 @@
     app:cardCornerRadius="12dp"
     android:layout_margin="8dp"
     android:longClickable="true">
+
+    <ImageView
+        android:id="@+id/closeImageView"
+        android:layout_width="@dimen/image_size"
+        android:layout_height="@dimen/image_size"
+        android:src="@drawable/ic_cancel"
+        android:scaleType="fitXY" />
     <TextView
         android:id="@+id/textViewText"
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_margin="16dp"
+        android:paddingTop="200dp"
         android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
         android:text="rand"
-        android:layout_height="match_parent"/>
+        />
 
 </com.google.android.material.card.MaterialCardView>

@@ -7,7 +7,7 @@ import javax.inject.Inject
 class AddNoteUseCase @Inject constructor(
     private val notesRepository: NotesRepository,
 ) {
-    suspend fun execute(text: String) {
-        notesRepository.addNote(text)
+    suspend fun execute(text: String,uri: ByteArray) {
+        notesRepository.addNote(text,uri)
     }
 }
