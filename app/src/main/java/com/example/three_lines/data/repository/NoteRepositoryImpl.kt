@@ -14,7 +14,7 @@ class NoteRepositoryImpl(
         notesDataSource.addNote(text)
     }
 
-    override fun removeNotes() {
-        TODO("Not yet implemented")
+    override fun deleteNote(note: Note) {
+        notesDataSource.deleteNote(note)
     }
 }

@@ -1,22 +1,22 @@
 package com.example.three_lines.presentation.list
 
 import android.view.LayoutInflater
-import android.view.ScrollCaptureCallback
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import com.example.three_lines.DataModel
 import com.example.three_lines.data.Note
-import com.example.three_lines.databinding.FragmentNoteListBinding
 import com.example.three_lines.databinding.ItemNoteBinding
-import com.example.three_lines.databinding.ViewContactBinding
 
 class NoteListAdapter : ListAdapter<Note,NoteListAdapter.NoteViewHolder>(diffUtil)  {
     private var onNoteClick : (Note) -> Unit = {}
     fun setCallBack(callback: (Note)->Unit){
         this.onNoteClick = callback
+    }
+    private var onNoteLongClick: (Note) -> Unit = {}
+
+    fun setLongCallBack(callback: (Note) -> Unit) {
+        this.onNoteLongClick = callback
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
         val binding = ItemNoteBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -34,6 +34,10 @@ class NoteListAdapter : ListAdapter<Note,NoteListAdapter.NoteViewHolder>(diffUti
             with(binding){
                 root.setOnClickListener { onNoteClick(item) }
                 textViewText.text = item.text
+                root.setOnLongClickListener {
+                    onNoteLongClick(item)
+                    true
+                }
             }
         }
     }

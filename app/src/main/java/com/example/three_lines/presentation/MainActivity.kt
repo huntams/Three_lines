@@ -1,19 +1,17 @@
 package com.example.three_lines.presentation
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
+import by.kirich1409.viewbindingdelegate.viewBinding
+import com.example.three_lines.R
 import com.example.three_lines.databinding.ActivityMainBinding
-import com.example.three_lines.second_activity.SecondActivity
 
-class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
+class MainActivity : AppCompatActivity(R.layout.activity_main) {
+    private val binding by viewBinding(ActivityMainBinding::bind)
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         }
 

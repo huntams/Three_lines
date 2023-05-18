@@ -5,7 +5,7 @@ object NotesDataSource {
     fun addNote(text : String){
         notesList.add(Note(text = text))
     }
-    fun removeNote(text : String){
-        notesList.remove(Note(text = text))
+    fun deleteNote(note: Note){
+        notesList.remove(note)
     }
 }
