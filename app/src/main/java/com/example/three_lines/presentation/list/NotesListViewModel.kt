@@ -10,9 +10,7 @@ import com.example.three_lines.domain.DeleteNoteUseCase
 import com.example.three_lines.domain.FilterNotesUseCase
 import com.example.three_lines.domain.GetNotesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
@@ -45,10 +43,11 @@ class NotesListViewModel @Inject constructor(
             }
         }
     }
-    fun filterNote(data: String){
+
+    fun filterNote(data: String) {
         viewModelScope.launch {
-            filterNotesUseCase.execute(data).collect{list->
-                _notesListLiveData.value = list.map{
+            filterNotesUseCase.execute(data).collect { list ->
+                _notesListLiveData.value = list.map {
                     it.copy(
                         text = it.text,
                         uri = it.uri,

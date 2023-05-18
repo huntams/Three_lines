@@ -21,7 +21,7 @@ class NoteRepositoryImpl @Inject constructor(
     }
 
     override fun filterNotes(data: String): Flow<List<Note>> {
-        return notesDAO.filterNotes(data).map { list->
+        return notesDAO.filterNotes(data).map { list ->
             list.map {
                 notesMapper.fromEntityToUIModel(it)
             }

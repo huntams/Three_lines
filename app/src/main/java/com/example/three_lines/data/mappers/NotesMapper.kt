@@ -7,18 +7,19 @@ import javax.inject.Singleton
 
 @Singleton
 class NotesMapper @Inject constructor() {
-    fun fromEntityToUIModel(entity: NoteEntity) : Note {
+    fun fromEntityToUIModel(entity: NoteEntity): Note {
 
-        return  Note(
+        return Note(
             id = entity.id,
             text = entity.text,
             uri = entity.uri,
         )
 
     }
-    fun fromUIModelToEntity(note: Note) : NoteEntity {
 
-        return  NoteEntity(
+    fun fromUIModelToEntity(note: Note): NoteEntity {
+
+        return NoteEntity(
             id = note.id,
             text = note.text,
             uri = note.uri,

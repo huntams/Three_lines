@@ -1,10 +1,10 @@
 package com.example.three_lines.data
 
-import java.util.*
+
 
 data class Note(
-    val id : Long,
-    val text : String,
+    val id: Long,
+    val text: String,
     val uri: ByteArray,
 ) {
     override fun equals(other: Any?): Boolean {

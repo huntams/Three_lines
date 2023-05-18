@@ -1,34 +1,22 @@
 package com.example.three_lines.presentation.fragment_add_note
 
-import android.content.UriMatcher
+
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.net.Uri
-import android.net.UrlQuerySanitizer
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.graphics.createBitmap
-import androidx.core.graphics.drawable.toBitmap
-import androidx.core.graphics.drawable.toBitmapOrNull
-import androidx.core.graphics.drawable.toIcon
-import androidx.core.net.UriCompat
-import androidx.core.net.toFile
 import androidx.core.view.drawToBitmap
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.model.ResourceLoader.UriFactory
 import com.example.three_lines.R
 import com.example.three_lines.databinding.FragmentAddNoteBinding
 import com.example.three_lines.presentation.list.NotesListViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import java.io.ByteArrayOutputStream
-import java.security.cert.URICertStoreParameters
 
 @AndroidEntryPoint
 class AddNoteFragment : Fragment(R.layout.fragment_add_note) {
@@ -39,13 +27,11 @@ class AddNoteFragment : Fragment(R.layout.fragment_add_note) {
             buttonAddImage.visibility = add
         }
     }
-
     private fun Bitmap.convertToByteArray(): ByteArray = ByteArrayOutputStream().apply {
         compress(Bitmap.CompressFormat.JPEG, 50, this)
     }.toByteArray()
 
     private var uri: ByteArray = byteArrayOf()
-    private var uriSafe: ByteArray? = byteArrayOf()
     private val viewModel by viewModels<NotesListViewModel>()
     private val binding by viewBinding(FragmentAddNoteBinding::bind)
     private val pickMedia =

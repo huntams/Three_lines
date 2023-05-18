@@ -12,7 +12,6 @@ import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
 
-
 @Module
 @InstallIn(SingletonComponent::class)
 object DatabaseModule {
@@ -30,9 +29,10 @@ object DatabaseModule {
             DB_NAME
         ).build()
     }
+
     @Provides
     @Singleton
-    fun provideNotesDAO(db : NotesDB) : NotesDAO{
+    fun provideNotesDAO(db: NotesDB): NotesDAO {
         return db.notesDAO()
     }
 }
